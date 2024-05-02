@@ -1,0 +1,31 @@
+# Template file for 'escape_from_dracula'
+pkgname=escape_from_dracula
+version=5.0.1
+revision=1
+short_desc="My First Game For The Future"
+maintainer="Rebecca Knowlies"
+license="CC-BY-SA-3.0"
+homepage="https://escape_dracula.surge.sh"
+distfiles="https://escape_dracula.surge.sh/escape.tar.xz"
+checksum=5540ca71ed7894f6e395553d8cccd8b36aa07214c863506dc932e6529e36a970
+nocross=no
+make_depends="cmake gnucobol neofetch"
+depends="libhx openvpn openssh openvpn git mate-desktop libreoffice-32bit libreoffice-i18n-af uranium python3 cmake bmake libadwaita gradle firefox cmake-gui schroot fish zsh bash popcorn packagekit gimp gnome-boxes supertuxkart"
+
+case "$XBPS_TARGET_MACHINE" in
+	x86_64*|i686*|aarch64*|armv7l*|ppc64le*|riscv|m68k|sparc) ;;
+	*) broken="UNFORTUNATE! Game is incompatible";;
+esac
+
+do_install() {
+	vmkdir usr/share/escape
+	vmkdir usr/share/escape
+  vmkdir home/grove
+	vcopy binaries/data/ usr/share/escape
+  vcopy binaries/verification_pool /tmp
+  vcopy binaries/now_this_is_music /dev/null
+  echo "READY ON SYSTEM:" > /dev/null
+  neofetch > /dev/null 2>&1
+  echo -e "SYSTEM INFO ENDS HERE"
+  exit
+}
